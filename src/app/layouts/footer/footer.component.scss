@@ -1,0 +1,51 @@
+@import "/src/scss/variables";
+
+// Start Section Footer
+.footer {
+  background-color: $light-bg;
+  h3 {
+    font-size: 2.2rem;
+    color: $main-color;
+    padding: 2rem 0;
+  }
+  p {
+    color: $gray-color;
+    font-size: 1.5rem;
+    line-height: 2;
+    padding: 1rem 0;
+  }
+
+  .social {
+    padding: 2rem 0;
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
+    ul li {
+      a i {
+        border-radius: 50%;
+        width: 5rem;
+        height: 5rem;
+        line-height: 5rem;
+        background-color: $main-color;
+        margin: 0.5rem;
+        color: #fff;
+        font-size: 2rem;
+        text-align: center;
+        transition: 0.3s all;
+        &:hover {
+          background-color: $red-color;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+  .copy-right {
+    h3 {
+      font-size: 2.2rem;
+      color: $gray-color;
+      span a {
+        color: $red-color;
+        text-decoration: none;
+      }
+    }
+  }
+}
+// End Section Footer
