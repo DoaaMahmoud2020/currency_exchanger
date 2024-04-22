@@ -1,0 +1,37 @@
+@import "/src/scss/variables";
+
+// Start Section Landing
+.landing {
+  .heading {
+    font-size: 3.5rem;
+    color: $main-color;
+  }
+  .card {
+    @include custom-card;
+    width: 40%;
+    .card-body {
+      padding: 25px;
+      .form-exchanger {
+        .form-control {
+          font-size: 1.7rem;
+          padding: 0.8rem;
+        }
+        input {
+          border-radius: $main-border-radius;
+        }
+        label {
+          font-size: 1.7rem;
+        }
+        .result {
+          color: $red-color;
+        }
+      }
+    }
+  }
+  button {
+    @include btn-main;
+    @include btn-secondary;
+    width: 50%;
+  }
+}
+// End Section Landing
