@@ -46,9 +46,9 @@ export class CurrencyFormComponent {
 
   ngOnInit() {
     this.initialForm();
-    this.getLatest();
+    // this.getLatest();
     if (this.data.from != null && this.data.from != undefined) {
-      this.getAllSymbols();
+      // this.getAllSymbols();
     }
   }
   initialForm() {
@@ -113,7 +113,6 @@ export class CurrencyFormComponent {
       let amount: number = parseFloat(this.getFormControlName('amount')!.value);
       let convertFrom: string = this.getFormControlName('from')!.value;
       let convertTo: string = this.getFormControlName('to')!.value;
-      this.isLoading = true;
       this._http
         .getConvert(
           { to: convertTo, from: convertFrom, amount: amount },
