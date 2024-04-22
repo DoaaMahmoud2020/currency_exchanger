@@ -1,0 +1,49 @@
+$main-color: #130f40;
+$red-color: #eb4d4b;
+$gray-color: #666666;
+$light-bg: #f9f9f9;
+$orange: #e94d1f;
+$main-border-radius: 5px;
+$main-border: 0.1rem solid rgba(0, 0, 0, 0.3);
+$main-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+%text-stroke {
+  color: #fff;
+  cursor: pointer;
+  -webkit-text-stroke: 0.1rem $main-color;
+
+  &:hover {
+    -webkit-text-stroke: 0.1rem $red-color;
+  }
+}
+
+@mixin btn-main {
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: $red-color;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.9rem 3rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: $main-color;
+  }
+}
+@mixin btn-secondary {
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: $main-color;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0.9rem 3rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: $red-color;
+  }
+}
+@mixin custom-card {
+  box-shadow: 0 0 30px rgb(214 215 216 / 60%);
+  border-radius: 12px;
+}
