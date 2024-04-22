@@ -1,0 +1,45 @@
+@import "/src/scss/variables";
+// Start Header Section
+.navbar {
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 10%);
+  padding: 2rem 9%;
+  background-color: #fff;
+  .navbar-toggler {
+    border: none;
+    color: #fff;
+    font-size: 21px;
+    .navbar-toggler-icon {
+      color: $red-color;
+    }
+  }
+}
+.logo {
+  font-size: 25px;
+  color: $main-color;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.logo i {
+  color: $red-color;
+}
+.navbar-nav .nav-item .nav-link {
+  color: $gray-color;
+  font-size: 17px;
+  margin: 0 10px;
+  &:hover {
+    color: $red-color;
+  }
+}
+
+.icons .fas {
+  font-size: 24px;
+  margin: 0 10px;
+  padding: 10px 0;
+  text-decoration: none;
+  @extend %text-stroke;
+}
+.lang-img {
+  width : 28px;
+  height: 20px;
+}
+// End Header Section
