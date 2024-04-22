@@ -1,0 +1,18 @@
+<!-- Start Charts Section -->
+<section class="charts d-flex justify-content-center align-items-center py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <canvas
+        baseChart
+        width="400"
+        height="400"
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="isLineChartLegend"
+      >
+      </canvas>
+    </div>
+  </div>
+</section>
+<!-- End Charts Section -->
