@@ -1,0 +1,137 @@
+<section class="form-currency">
+  <h1 class="text-center heading py-5">
+    {{ data.textHeader! || fullNameFrom }}
+  </h1>
+  <div class="card m-auto">
+    <div class="card-body">
+      @defer (when !isLoading) {
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="myForm" class="form-exchanger">
+        <div class="row">
+          <!-- Amount -->
+          <div
+            class="col-md-12 mb-4 form-group"
+            [class.error]="
+              getFormControlName('amount')!.touched &&
+              getFormControlName('amount')!.invalid
+            "
+          >
+            <label for="amount" class="form-label">Amount</label>
+            <input
+              type="number"
+              class="form-control"
+              id="amount"
+              placeholder="Enter Amount"
+              formControlName="amount"
+            />
+            @if(getFormControlName('amount')!.touched &&
+            getFormControlName('amount')!.invalid) {
+            <small class="text-danger"> Please enter amount to convert </small>
+            }
+          </div>
+
+          <!-- Currency to convert from -->
+          <div class="col-md-12 mb-4">
+            <label for="from" class="form-label">From</label>
+            <select
+              name="from"
+              id="from"
+              formControlName="from"
+              class="form-control"
+            >
+              @for (currency of currenciesCodes; track $index) {
+
+              <option [value]="currency">
+                {{ currency }}
+              </option>
+              } @empty {
+              <option>
+                <app-not-found-data />
+              </option>
+              }
+            </select>
+          </div>
+          <div class="col-md-1 m-auto text-center">
+            <a role="button" (click)="onSwapCurrency()"
+              ><img
+                [src]="'assets/images/arrow-down-up.svg'"
+                alt=""
+                priority
+                width="30"
+                height="30"
+                loading="lazy"
+            /></a>
+          </div>
+          <!-- Currency to convert to -->
+          <div
+            #to
+            class="col-md-12 mb-4"
+            [class.error]="
+              getFormControlName('to')!.touched &&
+              getFormControlName('to')!.value ==
+                getFormControlName('from')!.value
+            "
+          >
+            <label for="to" class="form-label">To</label>
+            <select name="to" id="to" formControlName="to" class="form-control">
+              @for (currency of currenciesCodes; track $index) {
+              <option [value]="currency">
+                {{ currency }}
+              </option>
+              } @empty {
+              <option>
+                <app-not-found-data />
+              </option>
+              }
+            </select>
+            @if(getFormControlName('to')!.touched &&
+            getFormControlName('to')!.value ==
+            getFormControlName('from')!.value) {
+            <small class="text-danger"> Currencies must be different </small>
+            }
+          </div>
+          <div class="col-md-12 mb-4 text-center">
+            <label name="result" id="" class="form-label result">
+              {{ resultText }}
+            </label>
+          </div>
+          <div class="col-md-12 mb-4 text-center">
+            <label name="resultTo" id="" class="form-label result">
+              {{ resultTo }}
+            </label>
+          </div>
+          <button
+            class="btn btn-main col-md-3 m-auto"
+            [disabled]="myForm.invalid || to.className == 'field error'"
+            type="submit"
+          >
+            Convert
+          </button>
+        </div>
+      </form>
+      @if(data.isShowButton!) {
+      <div class="col-md-12 mt-3">
+        <div content class="d-flex justify-content-center">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            [routerLink]="[
+              '/currency-details',
+              {
+                amount: getFormControlName('amount')!.value,
+                from: getFormControlName('from')!.value,
+                to: getFormControlName('to')!.value
+              }
+            ]"
+          >
+            More Details
+          </button>
+        </div>
+      </div>
+      } } @placeholder {
+      <ngx-loading [show]="isLoading"></ngx-loading>
+
+      }
+    </div>
+  </div>
+</section>
