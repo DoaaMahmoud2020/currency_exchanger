@@ -1,0 +1,24 @@
+<!-- Start Currency Details Section -->
+<section class="details d-flex justify-content-center align-items-center py-5">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb fs-2">
+        <li class="breadcrumb-item">
+          <a [routerLink]="''" class="text-decoration-none text-primary"
+            >Home</a
+          >
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+          currency-details
+        </li>
+      </ol>
+    </nav>
+    @defer {
+    <div class="align-items-center">
+      <app-currency-form [data]="currencyData"></app-currency-form>
+    </div>
+    <app-currency-charts></app-currency-charts>
+    }
+  </div>
+</section>
+<!-- End Currency Details Section -->
