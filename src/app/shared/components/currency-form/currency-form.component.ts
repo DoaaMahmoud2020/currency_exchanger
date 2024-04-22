@@ -46,9 +46,9 @@ export class CurrencyFormComponent {
 
   ngOnInit() {
     this.initialForm();
-    // this.getLatest();
+    this.getLatest();
     if (this.data.from != null && this.data.from != undefined) {
-      // this.getAllSymbols();
+      this.getAllSymbols();
     }
   }
   initialForm() {
